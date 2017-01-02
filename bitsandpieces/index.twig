@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="author" content="Fredrik Danielsson, http://lostkeys.se">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex" />
+  {% if meta.description %}
+    <meta name="description" content="{{ meta.description|striptags }}">
+  {% endif %}
+  <title>{% if meta.title %}{{ meta.title }} | {% endif %}{{ site_title }}</title>
+  <link rel="stylesheet" href="{{ theme_url }}/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="{{ theme_url }}/styles/highlightjs-github.css" type="text/css" />
+</head>
+<body>
+
+<aside class="main-nav">
+<nav>
+  <ul>
+    {% for page in pages if page.title %}
+      <li{% if page.id == current_page.id %} class="active"{% endif %}>
+        <a href="{{ page.url }}">{{ page.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
+</aside>
+<main class="main-content">
+  <article class="article">
+    {{ content }}
+  </article>
+</main>
+
+<script src="{{ theme_url }}/scripts/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>

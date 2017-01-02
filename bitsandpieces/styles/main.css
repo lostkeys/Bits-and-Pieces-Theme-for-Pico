@@ -1,0 +1,347 @@
+/**
+ * Main.css for Bits and Pieces theme for Pico
+ * Authored by Fredrik Danielsson, Lost&Keys (http://lostkeys.se)
+ * Licensed under MIT (https://github.com/lostkeys/Bits-and-Pieces-Theme-for-Pico/blob/master/LICENSE)
+ * 
+ * Dev note: This stylesheet is using a mobile first approach
+ */
+
+
+
+/*
+ * Variables, resets and setup
+ */
+ 
+:root {
+  --color-white: #ffffff;
+  --color-asphalt:#4d5757;
+  --color-concrete: #c1cacc;
+  --color-smoke: #e1e7e8;
+  --color-cloud: #fafafa;
+  --color-ocean: #2980B9;
+  --color-grass: #27ae60;
+
+  --accent-color: var(--color-concrete);
+  --border-color: var(--color-smoke);  
+  --code-bg-color: var(--color-cloud);
+  --text-color: var(--color-asphalt);
+  --link-color: var(--color-ocean);
+  
+  --vertical-padding: 40px;
+  --document-horizontal-margin: 80px;
+  --main-content-max-width: 800px;
+  --main-content-margin: 0 auto;  
+  --nav-width: 200px;
+}
+
+
+
+/*
+ * Font-face
+ */
+
+@font-face {
+  font-weight: 400;
+  font-style: normal;
+  font-family: 'source-sans-pro';
+  src: url('../font/SourceSansPro-Regular.eot'); /* IE9 Compat Modes */
+  src: url('../font/SourceSansPro-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../font/SourceSansPro-Regular.otf.woff') format('woff'), /* Pretty Modern Browsers */
+  url('../font/SourceSansPro-Regular.ttf') format('truetype'); /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-weight: 400;
+  font-style: italic;
+  font-family: 'source-sans-pro';
+  src: url('../font/SourceSansPro-It.eot'); /* IE9 Compat Modes */
+  src: url('../font/SourceSansPro-It.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../font/SourceSansPro-It.otf.woff') format('woff'), /* Pretty Modern Browsers */
+  url('../font/SourceSansPro-It.ttf') format('truetype'); /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-weight: 700;
+  font-style: normal;
+  font-family: 'source-sans-pro';
+  src: url('../font/SourceSansPro-Semibold.eot'); /* IE9 Compat Modes */
+  src: url('../font/SourceSansPro-Semibold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../font/SourceSansPro-Semibold.otf.woff') format('woff'), /* Pretty Modern Browsers */
+  url('../font/SourceSansPro-Semibold.ttf') format('truetype'); /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-weight: 700;
+  font-style: italic;
+  font-family: 'source-sans-pro';
+  src: url('../font/SourceSansPro-SemiboldIt.eot');
+  /* IE9 Compat Modes */
+  src: url('../font/SourceSansPro-SemiboldIt.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../font/SourceSansPro-SemiboldIt.otf.woff') format('woff'), /* Pretty Modern Browsers */
+  url('../font/SourceSansPro-SemiboldIt.ttf') format('truetype'); /* Safari, Android, iOS */
+}
+
+
+
+/*
+ * Mediaqueries
+ */
+
+@media (max-width: 1200px) {
+  :root {
+    --main-content-margin: 0 0 0 var(--nav-width);
+  }
+}
+
+
+
+/*
+ * Block styling
+ */
+ 
+html {
+  font-size: 16px;
+  font-family: "source-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.4;
+}
+
+body {
+  margin: 0;
+  background-color: #fff;
+  color: var(--text-color);
+}
+
+
+
+/* 
+ * Structure
+ */
+
+.main-content {
+  margin: var(--main-content-margin);
+  max-width: var(--main-content-max-width);  
+}
+
+.main-content .article {
+  margin-top: var(--document-horizontal-margin);
+  margin-bottom: var(--document-horizontal-margin);
+  margin-left: var(--vertical-padding);
+  margin-right: var(--vertical-padding);  
+}
+
+
+
+/* 
+ * Basic styling
+ */
+
+a,
+a:link,
+a:visited {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active,
+a:focus {
+  text-decoration: underline;
+}
+
+hr {
+  margin: 1rem 0;
+  border-width: 1px 0 0 0;
+  border-style: solid;
+  border-color: #ecf0f1;
+}
+
+h1 {
+  margin-top: 6rem;
+  margin-bottom: 3rem;
+  font-weight: normal;
+  font-size: 2.5rem;
+  letter-spacing: -0.025rem;
+}
+
+h2 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  position: -webkit-sticky;
+  top:0;
+  background-color: #fff;
+}
+
+h3 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+
+h2::before,
+h3::before 
+{
+  font-weight: 400;
+  font-size: 1.25rem;
+  text-align: right;
+  width: 1.5rem;
+  content: '#';
+  padding-right: .5rem;
+  margin-left: -2rem;
+  color: var(--accent-color);
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;  
+}
+
+.main-content h1:first-of-type {
+  margin-top: 0;
+}
+
+
+h2 + h3 {
+  margin-top: 1.5rem;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+table td,
+table th {
+  text-align: left;
+  padding: .3rem .9rem;
+  border: 1px solid var(--border-color);
+}
+
+code {
+  font-size: .875rem;
+  display: inline-block;
+  padding: 0 3px;
+  border: 1px solid var(--border-color);
+  border-radius: 1px;
+  background-color: var(--code-bg-color);
+  color: var(--text-color);
+}
+
+pre code {
+  display: block;
+  padding: 5px 10px;
+}
+
+
+
+/* 
+ * Main navigation
+ */
+
+.main-nav {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-left: var(--vertical-padding);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: var(--nav-width);
+  height: 100vh;
+}
+
+.main-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.main-nav a {
+  color: var(--text-color);
+  font-size: 0.9rem;
+  display: block;
+  overflow: hidden;
+  padding-top: 5px;
+  padding-bottom: 0px;
+  text-overflow: ellipsis;
+  white-space: nowrap;  
+}
+
+.main-nav a:hover {
+  text-decoration: none;
+}
+
+.main-nav nav {
+  padding:  var(--document-horizontal-margin) 0;
+}
+
+.main-nav nav ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.main-nav nav li {
+  margin-left: 0px;
+}
+
+.main-nav nav > ul > li {
+  padding-left: 0px;
+}
+
+.main-nav nav li.active {
+
+}
+
+.main-nav nav li.active > a {
+  font-weight: bold;
+}
+
+/* Main nav Tree (not implemented...yet */
+
+.main-nav nav li.directory > a::before {
+  content: '▸ ';
+}
+
+.main-nav nav li.directory a.folder-open::before {
+  content: '▾ ';
+}
+
+.main-nav nav li.directory > ul {
+  margin-top: 0;
+  margin-left: 20px;
+  display: none;
+  margin-bottom: 10px;
+}
+
+.main-nav nav li.directory.open > ul {
+  display: block;
+}
+
+/* same-page navigation (Not implemented...yet) */
+
+.page-nav:not(:empty) {
+  padding-top: 5px;
+}
+
+.page-nav a {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  font-size: 0.8em;
+}
+
+.page-nav a:before {
+  content: '# ';
+}
