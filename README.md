@@ -56,6 +56,6 @@ Code highligt are rendered using [highlight.js](https://highlightjs.org). Put th
 
 Since this theme is not intended for a public facing website I have taken the freedom to support only web browsers I use in my daily life which is **Safari** and **Chrome** for Mac and iOS. The theme also uses some bleeding edge css like native css variables and position sticky (which is unfortunately not available on chrome yet). So don't expect the theme to run on Internet Explorer. Maybe Edge. But I haven't tested and I probably won't either until Apple stops making macs.
 
-![scroll-preview](/Users/Fredrik/Sites/ref-theme/scroll-preview.gif)
+![scroll-preview](scroll-preview.gif)
 
 _Sticky headers on safari_
