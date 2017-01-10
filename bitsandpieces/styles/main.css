@@ -227,8 +227,16 @@ table {
 table td,
 table th {
   text-align: left;
-  padding: .3rem .9rem;
-  border: 1px solid var(--border-color);
+  padding: .3rem 0;
+  border-style: solid;
+  border-color: var(--border-color);
+  border-width: 1px 0;
+}
+
+/* Avoid border-on-border together with bordered H2 */
+h2 + table tr:first-child th,
+h2 + table tr:first-child td {
+  border-top-width: 0;
 }
 
 code {
