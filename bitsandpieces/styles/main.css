@@ -31,7 +31,7 @@
   --document-horizontal-margin: 80px;
   --main-content-max-width: 800px;
   --main-content-margin: 0 auto;  
-  --nav-width: 200px;
+  --nav-width: 180px;
 }
 
 
@@ -279,16 +279,26 @@ pre code {
 .main-nav a {
   color: var(--text-color);
   font-size: 0.9rem;
-  display: block;
   overflow: hidden;
   padding-top: 5px;
-  padding-bottom: 0px;
+  padding-bottom: 0;
   text-overflow: ellipsis;
   white-space: nowrap;  
+  display: flex;
 }
 
 .main-nav a:hover {
   text-decoration: none;
+}
+
+.main-nav a .shortcut {
+  align-self: center;
+  color: var(--color-concrete);
+  display: inline-block;
+  font-size: .6875rem;
+  font-weight: normal;
+  margin-left: auto;
+  text-align: right;
 }
 
 .main-nav nav {

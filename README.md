@@ -34,6 +34,18 @@ I also keep my reference files as a private git repository on github so I can ac
 
 The theme has currently no sub navigation. Regardles of the folder structure in your content directory all pages will be rendered in a flat list
 
+### Keyboard shortcuts
+Assign keyboard shortcuts to quickly switch between pages. Add the metadata `Shortcut: <key>` in the YAML header to assign the key to the page. Use `+` to make key combos. [Look at mousetrap documentation to see what you can do](https://craig.is/killing/mice)
+
+```yaml
+---
+Title: Bits and Pieces theme for Pico
+Shortcut: alt+1
+---
+```
+
+The above example will open the Bits and Pieces page when the keys `alt` and `1` keys are pressed simultaneously
+
 ### Titles
 
 Do include a level 1 header in your content `# this is a H1`. The title you specify in the front matter is used only for the navigation and does not render with the content.

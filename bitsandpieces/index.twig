@@ -18,8 +18,13 @@
 <nav>
   <ul>
     {% for page in pages if page.title %}
-      <li{% if page.id == current_page.id %} class="active"{% endif %}>
-        <a href="{{ page.url }}">{{ page.title }}</a>
+      <li class="menuitem {% if page.id == current_page.id %}active{% endif %}">
+        <a href="{{ page.url }}" data-shortcut="{{page.meta.shortcut}}">
+          {{ page.title }}
+          {% if page.meta.shortcut %}
+            <span class="shortcut">{{page.meta.shortcut|replace({'+':' '})}}</a>
+          {% endif %}
+        </a>
       </li>
     {% endfor %}
   </ul>
@@ -32,7 +37,18 @@
 </main>
 
 <script src="{{ theme_url }}/scripts/highlight.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+<script src="{{ theme_url }}/scripts/mousetrap.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  document.querySelectorAll('.menuitem a').forEach(function(el) {
+    if (el.getAttribute('data-shortcut').length > 0) {
+      Mousetrap.bind(el.getAttribute('data-shortcut'), function() {
+        location.assign(el.getAttribute('href'));
+      });       
+    }
+  });
+</script>
 
 </body>
 </html>
