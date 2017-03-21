@@ -363,3 +363,8 @@ pre code {
 .page-nav a:before {
   content: '# ';
 }
+
+/* remove dotted outline/border in Firefox */
+a:focus, a:active {
+  outline: none !important;
+}
