@@ -175,6 +175,7 @@ h2 {
   font-size: 1.5rem;
   border-bottom: 1px solid var(--border-color);
   position: -webkit-sticky;
+  position: sticky;
   top:0;
   background-color: #fff;
 }
