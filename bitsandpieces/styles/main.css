@@ -363,3 +363,16 @@ pre code {
 .page-nav a:before {
   content: '# ';
 }
+
+.example {
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+}
+
+.example + pre {
+  margin-top: 0;
+}
+
+.example + pre code {
+  border-top: 0;
+}
