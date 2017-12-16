@@ -17,7 +17,33 @@
 
 <aside class="main-nav">
 <nav>
+{#   {% macro menu(items, current_page) %}
   <ul>
+  {% for name,item in items %}
+    {% if item.url %}
+      <li class="is-page {% if item.id == current_page.id %}is-current{% endif %}">
+        <a href="{{ item.url }}">{{ item.title }}</a>
+      </li>
+    {% else %}
+      <li class="is-directory {% if item.id == current_page.id %}is-current is-active{% endif %}">
+        <span>{{ name }}</span>
+        {% if item._childs %}
+          {% import _self as macros %}
+          {{ macros.menu(item._childs) }}
+        {% endif %}
+      </li>
+    {% endif %}
+    </li>
+  {% endfor %}
+  </ul>
+{% endmacro %}
+
+{% import _self as macros %}
+{{ macros.menu(nested_pages, current_page) }} #}
+
+
+  {{ nested_pages | navigation }}
+{#   <ul>
     {% for page in pages if page.title %}
       <li class="menuitem {% if page.id == current_page.id %}active{% endif %}">
         <a href="{{ page.url }}" data-shortcut="{{page.meta.shortcut}}">
@@ -28,7 +54,7 @@
         </a>
       </li>
     {% endfor %}
-  </ul>
+  </ul> #}
 </nav>
 </aside>
 <main class="main-content">
@@ -37,16 +63,17 @@
   </article>
 </main>
 
+<script src="{{ theme_url }}/scripts/app.js"></script>
 <script src="{{ theme_url }}/scripts/highlight.js"></script>
 <script src="{{ theme_url }}/scripts/mousetrap.min.js"></script>
 <script>
   hljs.initHighlightingOnLoad();
-  
+
   document.querySelectorAll('.menuitem a').forEach(function(el) {
     if (el.getAttribute('data-shortcut').length > 0) {
       Mousetrap.bind(el.getAttribute('data-shortcut'), function() {
         location.assign(el.getAttribute('href'));
-      });       
+      });
     }
   });
 </script>

@@ -2,7 +2,7 @@
  * Main.css for Bits and Pieces theme for Pico
  * Authored by Fredrik Danielsson, Lost&Keys (http://lostkeys.se)
  * Licensed under MIT (https://github.com/lostkeys/Bits-and-Pieces-Theme-for-Pico/blob/master/LICENSE)
- * 
+ *
  * Dev note: This stylesheet is using a mobile first approach
  */
 
@@ -11,7 +11,7 @@
 /*
  * Variables, resets and setup
  */
- 
+
 :root {
   --color-white: #ffffff;
   --color-asphalt:#4d5757;
@@ -22,15 +22,16 @@
   --color-grass: #27ae60;
 
   --accent-color: var(--color-concrete);
-  --border-color: var(--color-smoke);  
+  --border-color: var(--color-smoke);
   --code-bg-color: var(--color-cloud);
   --text-color: var(--color-asphalt);
   --link-color: var(--color-ocean);
-  
+  --nav-link-color: var(--text-color);
+
   --vertical-padding: 40px;
   --document-horizontal-margin: 80px;
   --main-content-max-width: 800px;
-  --main-content-margin: 0 auto;  
+  --main-content-margin: 0 auto;
   --nav-width: 180px;
 }
 
@@ -98,7 +99,7 @@
 /*
  * Block styling
  */
- 
+
 html {
   font-size: 16px;
   font-family: "source-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -113,25 +114,25 @@ body {
 
 
 
-/* 
+/*
  * Structure
  */
 
 .main-content {
   margin: var(--main-content-margin);
-  max-width: var(--main-content-max-width);  
+  max-width: var(--main-content-max-width);
 }
 
 .main-content .article {
   margin-top: var(--document-horizontal-margin);
   margin-bottom: var(--document-horizontal-margin);
   margin-left: var(--vertical-padding);
-  margin-right: var(--vertical-padding);  
+  margin-right: var(--vertical-padding);
 }
 
 
 
-/* 
+/*
  * Basic styling
  */
 
@@ -194,7 +195,7 @@ h6 {
 }
 
 h2::before,
-h3::before 
+h3::before
 {
   font-weight: 400;
   font-size: 1.25rem;
@@ -205,7 +206,7 @@ h3::before
   margin-left: -2rem;
   color: var(--accent-color);
   display: inline-block;
-  -webkit-font-smoothing: antialiased;  
+  -webkit-font-smoothing: antialiased;
 }
 
 .main-content h1:first-of-type {
@@ -256,7 +257,7 @@ pre code {
 
 
 
-/* 
+/*
  * Main navigation
  */
 
@@ -276,15 +277,17 @@ pre code {
   display: none;
 }
 
-.main-nav a {
-  color: var(--text-color);
+.main-nav a,
+.main-nav span {
+  color: var(--nav-link-color);
   font-size: 0.9rem;
   overflow: hidden;
   padding-top: 5px;
   padding-bottom: 0;
   text-overflow: ellipsis;
-  white-space: nowrap;  
+  white-space: nowrap;
   display: flex;
+  text-transform: capitalize;
 }
 
 .main-nav a:hover {
@@ -319,34 +322,45 @@ pre code {
   padding-left: 0px;
 }
 
-.main-nav nav li.active {
+.main-nav nav li.is-current {
 
 }
 
-.main-nav nav li.active > a {
+.main-nav nav li.is-current > a {
   font-weight: bold;
 }
 
-/* Main nav Tree (not implemented...yet */
+/* Main nav Tree */
 
-.main-nav nav li.directory > a::before {
-  content: '▸ ';
+.main-nav nav li.is-directory span {
+  --nav-link-color: var(--color-concrete);
 }
-
-.main-nav nav li.directory a.folder-open::before {
-  content: '▾ ';
-}
-
-.main-nav nav li.directory > ul {
+.main-nav nav li.is-directory > ul {
   margin-top: 0;
-  margin-left: 20px;
-  display: none;
+  margin-left: .25rem;
+  border-left: 2px solid var(--color-smoke);
+  padding-left: .25rem;
   margin-bottom: 10px;
 }
 
-.main-nav nav li.directory.open > ul {
+.main-nav nav li.is-directory:not(.is-active) > ul {
+  display: none;
+}
+
+.main-nav nav li.is-directory.is-open > ul {
   display: block;
 }
+
+/* Folder icons, t.b.d */
+/*
+.main-nav nav li.is-directory > span::before {
+  content: '▸ ';
+}
+
+.main-nav nav li.is-directory span.folder-open::before {
+  content: '▾ ';
+}
+*/
 
 /* same-page navigation (Not implemented...yet) */
 
