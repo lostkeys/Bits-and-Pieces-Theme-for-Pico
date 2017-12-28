@@ -2,7 +2,7 @@
  * Main.css for Bits and Pieces theme for Pico
  * Authored by Fredrik Danielsson, Lost&Keys (http://lostkeys.se)
  * Licensed under MIT (https://github.com/lostkeys/Bits-and-Pieces-Theme-for-Pico/blob/master/LICENSE)
- * 
+ *
  * Dev note: This stylesheet is using a mobile first approach
  */
 
@@ -11,7 +11,7 @@
 /*
  * Variables, resets and setup
  */
- 
+
 :root {
   --color-white: #ffffff;
   --color-asphalt:#4d5757;
@@ -22,15 +22,15 @@
   --color-grass: #27ae60;
 
   --accent-color: var(--color-concrete);
-  --border-color: var(--color-smoke);  
+  --border-color: var(--color-smoke);
   --code-bg-color: var(--color-cloud);
   --text-color: var(--color-asphalt);
   --link-color: var(--color-ocean);
-  
+
   --vertical-padding: 40px;
   --document-horizontal-margin: 80px;
   --main-content-max-width: 800px;
-  --main-content-margin: 0 auto;  
+  --main-content-margin: 0 auto;
   --nav-width: 180px;
 }
 
@@ -98,7 +98,7 @@
 /*
  * Block styling
  */
- 
+
 html {
   font-size: 16px;
   font-family: "source-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -113,25 +113,25 @@ body {
 
 
 
-/* 
+/*
  * Structure
  */
 
 .main-content {
   margin: var(--main-content-margin);
-  max-width: var(--main-content-max-width);  
+  max-width: var(--main-content-max-width);
 }
 
 .main-content .article {
   margin-top: var(--document-horizontal-margin);
   margin-bottom: var(--document-horizontal-margin);
   margin-left: var(--vertical-padding);
-  margin-right: var(--vertical-padding);  
+  margin-right: var(--vertical-padding);
 }
 
 
 
-/* 
+/*
  * Basic styling
  */
 
@@ -167,7 +167,7 @@ h1 {
 }
 
 h2 {
-  margin-top: 1.5rem;
+  margin-top: 0;
   margin-bottom: 1.5rem;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -175,6 +175,7 @@ h2 {
   font-size: 1.5rem;
   border-bottom: 1px solid var(--border-color);
   position: -webkit-sticky;
+  position: sticky;
   top:0;
   background-color: #fff;
 }
@@ -194,7 +195,7 @@ h6 {
 }
 
 h2::before,
-h3::before 
+h3::before
 {
   font-weight: 400;
   font-size: 1.25rem;
@@ -205,7 +206,8 @@ h3::before
   margin-left: -2rem;
   color: var(--accent-color);
   display: inline-block;
-  -webkit-font-smoothing: antialiased;  
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--color-white);
 }
 
 .main-content h1:first-of-type {
@@ -256,7 +258,7 @@ pre code {
 
 
 
-/* 
+/*
  * Main navigation
  */
 
@@ -283,7 +285,7 @@ pre code {
   padding-top: 5px;
   padding-bottom: 0;
   text-overflow: ellipsis;
-  white-space: nowrap;  
+  white-space: nowrap;
   display: flex;
 }
 
@@ -362,4 +364,59 @@ pre code {
 
 .page-nav a:before {
   content: '# ';
+}
+
+
+
+/*
+ * Main navigation
+ */
+.page-toc {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding-right: var(--vertical-padding);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: var(--nav-width);
+  height: 100vh;
+}
+
+@media (max-width: 1200px) {
+  .page-toc {
+    display: none;
+  }
+}
+
+.page-toc ul {
+  padding:  var(--document-horizontal-margin) 0;
+  margin: 0;
+  list-style: none;
+}
+
+.page-toc a {
+  color: var(--color-concrete);
+  font-size: 0.9rem;
+  overflow: hidden;
+  padding-top: 5px;
+  padding-bottom: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: flex;
+}
+
+.page-toc a:hover {
+  text-decoration: none;
+}
+
+/* Toc markers are used as anchors since sticky headers
+ * interfere with scrollto when scrolling up.
+ */
+.page-toc-scroll-marker {
+  display: block;
+  width: 1px;
+  height: 1px;
+  top: 1px;
+  overflow: hidden;
+  position: relative;
 }
