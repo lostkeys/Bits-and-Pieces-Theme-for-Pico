@@ -420,3 +420,20 @@ pre code {
   overflow: hidden;
   position: relative;
 }
+
+/* Class to contain example code for example if
+ * used as a styleguide or pattern library
+ */
+.example {
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+}
+
+.example + pre {
+  margin-top: 0;
+}
+
+.example + pre code {
+  border-top: 0;
+}
+
