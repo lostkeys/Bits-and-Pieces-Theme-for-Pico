@@ -64,6 +64,18 @@ Code highligt are rendered using [highlight.js](https://highlightjs.org). Put th
 ​```
 ```
 
+### Load external css files
+
+Add the following setting in`config.php` to load external css files.
+
+```php
+$config['external_css'] = array(
+  'url/to/external/css-file-1.css',
+  'url/to/path-to/file-2.css',
+);
+
+```
+
 ### Browser compability
 
 Since this theme is not intended for a public facing website I have taken the freedom to support only web browsers I use in my daily life which is **Safari** and **Chrome** for Mac and iOS. The theme also uses some bleeding edge css like native css variables and position sticky (which is unfortunately not available on chrome yet). So don't expect the theme to run on Internet Explorer. Maybe Edge. But I haven't tested and I probably won't either until Apple stops making macs.

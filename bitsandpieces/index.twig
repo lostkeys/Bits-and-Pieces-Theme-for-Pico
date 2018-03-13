@@ -11,6 +11,9 @@
   <title>{% if meta.title %}{{ meta.title }} | {% endif %}{{ site_title }}</title>
   <link rel="stylesheet" href="{{ theme_url }}/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="{{ theme_url }}/styles/highlightjs-github.css" type="text/css" />
+  {% for css_file in config.external_css %}
+    <link rel="stylesheet" href="{{ css_file }}" type="text/css" />
+  {% endfor %}
 </head>
 <body>
 
@@ -35,19 +38,52 @@
     {{ content }}
   </article>
 </main>
+<nav class="page-toc">
+  <ul id="page-toc-container">
+
+  </ul>
+</nav>
 
 <script src="{{ theme_url }}/scripts/highlight.js"></script>
 <script src="{{ theme_url }}/scripts/mousetrap.min.js"></script>
 <script>
   hljs.initHighlightingOnLoad();
-  
+
   document.querySelectorAll('.menuitem a').forEach(function(el) {
     if (el.getAttribute('data-shortcut').length > 0) {
       Mousetrap.bind(el.getAttribute('data-shortcut'), function() {
         location.assign(el.getAttribute('href'));
-      });       
+      });
     }
   });
+
+  /**
+   * Generate page table of contents
+   *
+   * Get all H2 elements and render them in a list
+  **/
+  function generatePageTOC() {
+    var tocContainer = document.getElementById('page-toc-container');
+
+    document.querySelectorAll('.article h2').forEach(function(el, index) {
+      // Insert a marker since anchor links breaks with css position sticky
+      // sticky headers upwards are stacked at the top of the viewport
+      // and therefore cannot be jumped to since they are already visible
+      // Instead inject a hidden element to use as a scroll marker
+      el.insertAdjacentHTML('beforebegin', '<i id="page-toc-'+index+'" class="page-toc-scroll-marker">TOC marker</i>');
+
+      var newTocNavItem = document.createElement('li');
+      var newTocNavItemLink = document.createElement('a');
+      var newTocNavItemText = document.createTextNode(el.textContent);
+
+      newTocNavItemLink.setAttribute('href', '#page-toc-' + index);
+      newTocNavItemLink.appendChild(newTocNavItemText);
+      newTocNavItem.appendChild(newTocNavItemLink);
+      tocContainer.appendChild(newTocNavItem);
+    });
+  }
+  generatePageTOC();
+
 </script>
 
 </body>
