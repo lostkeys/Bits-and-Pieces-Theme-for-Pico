@@ -149,6 +149,7 @@ a:hover {
 a:active,
 a:focus {
   text-decoration: underline;
+  outline: none !important;
 }
 
 hr {
