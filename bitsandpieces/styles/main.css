@@ -13,25 +13,25 @@
  */
 
 :root {
-  --color-white: #ffffff;
   --color-asphalt:#4d5757;
-  --color-concrete: #c1cacc;
-  --color-smoke: #e1e7e8;
   --color-cloud: #fafafa;
-  --color-ocean: #2980B9;
+  --color-concrete: #c1cacc;
   --color-grass: #27ae60;
+  --color-ocean: #2980B9;
+  --color-smoke: #e1e7e8;
+  --color-white: #ffffff;
 
   --accent-color: var(--color-concrete);
   --border-color: var(--color-smoke);
   --code-bg-color: var(--color-cloud);
-  --text-color: var(--color-asphalt);
   --link-color: var(--color-ocean);
+  --text-color: var(--color-asphalt);
 
-  --vertical-padding: 40px;
   --document-horizontal-margin: 80px;
-  --main-content-max-width: 800px;
   --main-content-margin: 0 auto;
+  --main-content-max-width: 800px;
   --nav-width: 180px;
+  --vertical-padding: 40px;
 }
 
 
@@ -100,15 +100,15 @@
  */
 
 html {
-  font-size: 16px;
   font-family: "source-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
   line-height: 1.4;
 }
 
 body {
-  margin: 0;
   background-color: #fff;
   color: var(--text-color);
+  margin: 0;
 }
 
 
@@ -123,10 +123,10 @@ body {
 }
 
 .main-content .article {
-  margin-top: var(--document-horizontal-margin);
   margin-bottom: var(--document-horizontal-margin);
   margin-left: var(--vertical-padding);
   margin-right: var(--vertical-padding);
+  margin-top: var(--document-horizontal-margin);
 }
 
 
@@ -152,39 +152,39 @@ a:focus {
 }
 
 hr {
-  margin: 1rem 0;
-  border-width: 1px 0 0 0;
-  border-style: solid;
   border-color: #ecf0f1;
+  border-style: solid;
+  border-width: 1px 0 0 0;
+  margin: 1rem 0;
 }
 
 h1 {
-  margin-top: 6rem;
-  margin-bottom: 1.5rem;
-  font-weight: normal;
   font-size: 2.5rem;
+  font-weight: normal;
   letter-spacing: -0.025rem;
+  margin-bottom: 1.5rem;
+  margin-top: 6rem;
 }
 
 h2 {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  font-weight: bold;
-  font-size: 1.5rem;
+  background-color: #fff;
   border-bottom: 1px solid var(--border-color);
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
   position: -webkit-sticky;
   position: sticky;
   top:0;
-  background-color: #fff;
 }
 
 h3 {
-  margin-top: 3rem;
-  margin-bottom: 1rem;
   font-size: 1.25rem;
   font-weight: bold;
+  margin-bottom: 1rem;
+  margin-top: 3rem;
 }
 
 h4,
@@ -197,17 +197,17 @@ h6 {
 h2::before,
 h3::before
 {
-  font-weight: 400;
-  font-size: 1.25rem;
-  text-align: right;
-  width: 1.5rem;
-  content: '#';
-  padding-right: .5rem;
-  margin-left: -2rem;
-  color: var(--accent-color);
-  display: inline-block;
   -webkit-font-smoothing: antialiased;
   background-color: var(--color-white);
+  color: var(--accent-color);
+  content: '#';
+  display: inline-block;
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-left: -2rem;
+  padding-right: .5rem;
+  text-align: right;
+  width: 1.5rem;
 }
 
 .main-content h1:first-of-type {
@@ -221,18 +221,18 @@ h2 + h3 {
 
 
 table {
-  width: 100%;
   border-collapse: collapse;
   margin: 1rem 0;
+  width: 100%;
 }
 
 table td,
 table th {
-  text-align: left;
-  padding: .3rem 0;
-  border-style: solid;
   border-color: var(--border-color);
+  border-style: solid;
   border-width: 1px 0;
+  padding: .3rem 0;
+  text-align: left;
 }
 
 /* Avoid border-on-border together with bordered H2 */
@@ -242,13 +242,13 @@ h2 + table tr:first-child td {
 }
 
 code {
-  font-size: .875rem;
-  display: inline-block;
-  padding: 0 3px;
-  border: 1px solid var(--border-color);
-  border-radius: 1px;
   background-color: var(--code-bg-color);
+  border-radius: 1px;
+  border: 1px solid var(--border-color);
   color: var(--text-color);
+  display: inline-block;
+  font-size: .875rem;
+  padding: 0 3px;
 }
 
 pre code {
@@ -264,14 +264,14 @@ pre code {
 
 .main-nav {
   box-sizing: border-box;
-  position: fixed;
-  top: 0;
+  height: 100vh;
   left: 0;
-  padding-left: var(--vertical-padding);
   overflow-x: hidden;
   overflow-y: scroll;
+  padding-left: var(--vertical-padding);
+  position: fixed;
+  top: 0;
   width: var(--nav-width);
-  height: 100vh;
 }
 
 .main-nav::-webkit-scrollbar {
@@ -280,13 +280,13 @@ pre code {
 
 .main-nav a {
   color: var(--text-color);
+  display: flex;
   font-size: 0.9rem;
   overflow: hidden;
-  padding-top: 5px;
   padding-bottom: 0;
+  padding-top: 5px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  display: flex;
 }
 
 .main-nav a:hover {
@@ -308,9 +308,9 @@ pre code {
 }
 
 .main-nav nav ul {
+  list-style: none;
   margin: 0;
   padding-left: 0;
-  list-style: none;
 }
 
 .main-nav nav li {
@@ -340,10 +340,10 @@ pre code {
 }
 
 .main-nav nav li.directory > ul {
-  margin-top: 0;
-  margin-left: 20px;
   display: none;
   margin-bottom: 10px;
+  margin-left: 20px;
+  margin-top: 0;
 }
 
 .main-nav nav li.directory.open > ul {
@@ -357,9 +357,9 @@ pre code {
 }
 
 .page-nav a {
-  padding-top: 0px;
-  padding-bottom: 0px;
   font-size: 0.8em;
+  padding-bottom: 0px;
+  padding-top: 0px;
 }
 
 .page-nav a:before {
@@ -371,15 +371,16 @@ pre code {
 /*
  * Main navigation
  */
+
 .page-toc {
-  position: fixed;
-  top: 0;
-  right: 0;
-  padding-right: var(--vertical-padding);
+  height: 100vh;
   overflow-x: hidden;
   overflow-y: scroll;
+  padding-right: var(--vertical-padding);
+  position: fixed;
+  right: 0;
+  top: 0;
   width: var(--nav-width);
-  height: 100vh;
 }
 
 @media (max-width: 1200px) {
@@ -389,41 +390,47 @@ pre code {
 }
 
 .page-toc ul {
-  padding:  var(--document-horizontal-margin) 0;
-  margin: 0;
   list-style: none;
+  margin: 0;
+  padding:  var(--document-horizontal-margin) 0;
 }
 
 .page-toc a {
   color: var(--color-concrete);
+  display: flex;
   font-size: 0.9rem;
   overflow: hidden;
-  padding-top: 5px;
   padding-bottom: 0;
+  padding-top: 5px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  display: flex;
 }
 
 .page-toc a:hover {
   text-decoration: none;
 }
 
+
+
 /* Toc markers are used as anchors since sticky headers
  * interfere with scrollto when scrolling up.
  */
+
 .page-toc-scroll-marker {
   display: block;
-  width: 1px;
   height: 1px;
-  top: 1px;
   overflow: hidden;
   position: relative;
+  top: 1px;
+  width: 1px;
 }
+
+
 
 /* Class to contain example code for example if
  * used as a styleguide or pattern library
  */
+
 .example {
   border: 1px solid var(--border-color);
   padding: 1rem;
@@ -436,4 +443,3 @@ pre code {
 .example + pre code {
   border-top: 0;
 }
-
