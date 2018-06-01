@@ -260,6 +260,56 @@ pre code {
 
 
 /*
+ * Copy to clipboard
+ */
+
+.copy-to-clipboard-btn {
+  appearance: none;
+  border: 0;
+  background: none;
+  margin: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--accent-color);
+}
+
+.copy-to-clipboard-btn:hover {
+  color: var(--link-color);
+}
+
+.copy-to-clipboard-btn:active {
+  color: var(--text-color);
+}
+
+.copy-to-clipboard-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.code-block-container {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.code-block-container .copy-to-clipboard-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+  opacity: .25;
+  transition: opacity .15s;
+}
+
+.code-block-container:hover .copy-to-clipboard-btn {
+  opacity: 1;
+}
+
+
+
+/*
  * Main navigation
  */
 
